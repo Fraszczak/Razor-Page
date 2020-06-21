@@ -1,0 +1,93 @@
+﻿@page
+@model RazorPageMovies.Pages.SingInModel
+<head>
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @@media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+                margin-bottom: auto;
+            }
+        }
+        /*body {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-align: center;
+            align-items: center;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            background-color: #f5f5f5;
+        }*/
+        
+        .form-signin {
+            width: 100%;
+            max-width: 330px;
+            padding: 15px;
+            margin: auto;
+        }
+        .form-signin .checkbox {
+            font-weight: 400;
+        }
+        .form-signin .form-control {
+            position: relative;
+            box-sizing: border-box;
+            height: auto;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .form-signin .form-control:focus {
+            z-index: 2;
+        }
+        .featurette-divider {
+            margin: 2rem 0; /* Space out the Bootstrap <hr> more */
+        }
+
+    </style>
+</head>
+<div class="text-center">
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <hr class="featurette-divider"/>
+    <div class="row text-center">
+
+        <div class="form-signin">
+            <img class="mb-4" src="img/pngfuel.com.png" alt="" width="300" height="300">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Users.Login" class="control-label"></label>
+                    <input asp-for="Users.Login" class="form-control"/>
+                    <span asp-validation-for="Users.Login" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Users.Password" class="control-label"></label>
+                    <input asp-for="Users.Password" class="form-control"/>
+                    <span asp-validation-for="Users.Password" class="text-danger"></span>
+                </div>
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary"/>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-page="Index">Back to List</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
